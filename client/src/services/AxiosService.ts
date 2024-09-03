@@ -7,7 +7,7 @@ export class AxiosService {
 
     constructor() {
         this.axios = axios.create({
-            baseURL: "http://localhost:8000",
+            baseURL: process.env.API_HOST,
             timeout: 5000,
             headers: {
                 "Content-Type": "application/json",
