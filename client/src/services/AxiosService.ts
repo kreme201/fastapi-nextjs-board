@@ -16,22 +16,32 @@ export class AxiosService {
     }
 
     public async get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-        return this.axios.get<T>(url, config);
+        return this.axios.get<T>(url, config).catch((error) => {
+            throw error.response.data;
+        });
     }
 
     public async post<T>(url: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-        return this.axios.post<T>(url, data, config);
+        return this.axios.post<T>(url, data, config).catch((error) => {
+            throw error.response.data;
+        });
     }
 
     public async put<T>(url: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-        return this.axios.put<T>(url, data, config);
+        return this.axios.put<T>(url, data, config).catch((error) => {
+            throw error.response.data;
+        });
     }
 
     public async patch<T>(url: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-        return this.axios.patch<T>(url, data, config);
+        return this.axios.patch<T>(url, data, config).catch((error) => {
+            throw error.response.data;
+        });
     }
 
     public async delete<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-        return this.axios.delete<T>(url, config);
+        return this.axios.delete<T>(url, config).catch((error) => {
+            throw error.response.data;
+        });
     }
 }
